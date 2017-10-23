@@ -1,40 +1,34 @@
-import { CartItem } from '../../types/cart-item';
-import { ShopItem } from '../../types/shop-item';
-import { Component, OnInit } from '@angular/core';
+import {CartItem} from "../../types/cart-item";
+import {Component} from "@angular/core";
+import {find, pull} from "lodash";
 
 @Component({
-  selector: 'app-shop',
-  template: `
+    selector: 'app-shop',
+    template: `
+    <header>
+        <h1>Star Wars Shop</h1>
+    </header>
     <article>
-      <app-items-list (itemAdded)="addItemToCart($event)"></app-items-list>
-      <app-shopping-cart [shoppingList]="shoppingList"></app-shopping-cart>
+        <app-shop-list (addItem)="addItem($event)"></app-shop-list>
+        <app-shop-cart [shoppingList]="shoppingList" (removeItem)="removeItem($event)"></app-shop-cart>
+        <button *ngIf="shoppingList?.length > 0" class="ui yellow button checkout" [routerLink]="'checkout'">Checkout!</button>
     </article>
-
-  `,
-  styleUrls: ['./shop.component.css']
+    `,
+    styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent implements OnInit {
-  shoppingList: Array<CartItem>=[]
-  itemsInCart: object={}
-  constructor() { }
+export class ShopComponent {
+    shoppingList: CartItem[] = [];
 
-  ngOnInit() {
-  }
-
-  addItemToCart(item:CartItem){
-    if(this.itemsInCart[item.id]){
-      this.shoppingList.find((el:any,index:number)=>{
-        if(el.id === item.id){
-          this.shoppingList[index].quantity += 1 
-          return true
+    addItem(item: CartItem) {
+        if (find(this.shoppingList, item)) item.quantity += 1;
+        else {
+            item.quantity = 1;
+            this.shoppingList.push(item);
         }
-        return false
-      })
-    }else{
-      item.quantity = 1
-      this.itemsInCart[item.id]=true
-      this.shoppingList.push(item)
     }
-  }
+
+    removeItem(item: CartItem) {
+        pull(this.shoppingList, item);
+    }
 
 }

@@ -1,15 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  template: `
-    <header>
-      <h1>Star Wars Shop</h1>
-    </header>
-    <router-outlet></router-outlet>
-  `,
-  styles: []
+    selector: 'app-root',
+    template: `<router-outlet></router-outlet>`
 })
 export class AppComponent {
-  title = 'app';
 }

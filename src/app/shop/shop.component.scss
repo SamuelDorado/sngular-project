@@ -1,0 +1,36 @@
+:host {
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 5rem;
+    }
+  }
+
+  article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    button {
+      height: 3rem;
+      margin-right: 1rem;
+    }
+
+    app-shop-list,
+    app-shop-cart {
+      display: flex;
+    }
+
+    app-shop-list {
+      flex: 2;
+    }
+
+    app-shop-cart {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+}

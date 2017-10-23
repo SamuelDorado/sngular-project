@@ -1,0 +1,19 @@
+article {
+  //background-image:    url('http://cdn.playbuzz.com/cdn/255434cc-9951-4d3b-8823-4e2d98dcf877/1f58f1f7-85ca-4578-8f7a-9713b6087f94.jpg');
+  background-image: url('../../assets/main.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+section {
+  padding: 30px;
+}
+
+h1 {
+  color: white;
+  font-size: 3.5rem;
+}
