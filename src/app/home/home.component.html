@@ -1,9 +1,14 @@
 <article>
     <section>
         <h1>Welcome to our shop!</h1>
-        <button class="ui inverted button big" routerLink="shop">Let's buy some cool stuff</button>
+        <button class="ui inverted button big" routerLink="/shop">Let's buy some cool stuff</button>
     </section>
     <section>
-        <button class="ui inverted button red big" routerLink="admin">Admin Login</button>
+        <ng-container *ngIf="auth.isAuthenticated();else loginButton">
+            <a class="ui label green big" routerLink="/admin"> Admin User </a>
+        </ng-container>
+        <ng-template #loginButton>
+            <button class="ui inverted button red big" (click)="auth.login()">Admin Login</button>
+        </ng-template>
     </section>
 </article>
