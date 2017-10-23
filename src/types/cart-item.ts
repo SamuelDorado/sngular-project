@@ -1,4 +1,5 @@
-import { ShopItem } from './shop-item';
-export class CartItem extends ShopItem{
-    quantity:number;
+import {ProductItem} from "./product-item";
+
+export class CartItem extends ProductItem {
+    quantity: number;
 }

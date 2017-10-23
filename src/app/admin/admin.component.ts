@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-checkout',
+  selector: 'app-admin',
   template: `
     <p>
-      checkout works!
+      admin works!
     </p>
   `,
   styles: []
 })
-export class CheckoutComponent implements OnInit {
+export class AdminComponent implements OnInit {
 
   constructor() { }
 
