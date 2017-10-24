@@ -38,7 +38,7 @@ import {CartItem} from "../../../types/cart-item";
         
         <ng-template #emptyCart>
             <div class="ui message">
-              <i class="warning circle icon"></i> Your <i class="shop icon big"></i> is empty
+              <i class="warning circle icon"></i> Your<i class="shop icon big"></i>is empty
             </div>
         </ng-template>
     `,

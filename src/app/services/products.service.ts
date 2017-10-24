@@ -31,4 +31,9 @@ export class ProductsService {
             .map(res => res.json());
     };
 
+    deleteProduct(id: string): Observable<any> {
+        return this.http.delete(`${environment.url}/products/${id}`)
+            .map(res => res.json());
+    };
+
 }

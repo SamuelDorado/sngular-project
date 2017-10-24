@@ -1,3 +1,5 @@
+import { ProductItem } from '../../types/product-item';
+import { ProductsService } from '../services/products.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,10 +12,20 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class AdminComponent implements OnInit {
-
-  constructor() { }
+  productList:ProductItem[] = [];
+  newProduct:ProductItem = new ProductItem();
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
+    this.refreshProductList();
   }
-
+  refreshProductList(){
+    this.productsService.getProducts().subscribe((data=>this.productList = data))
+  }
+  createProduct(product:ProductItem){
+    this.productsService.addProduct(product).subscribe((e)=> this.refreshProductList())
+  }
+  deleteProduct(product:ProductItem){
+    this.productsService.deleteProduct(product.id).subscribe((e)=> this.refreshProductList())
+  }
 }
