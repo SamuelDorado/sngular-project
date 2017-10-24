@@ -37,7 +37,9 @@ import {CartItem} from "../../../types/cart-item";
         </ng-container>
         
         <ng-template #emptyCart>
-        Your <i class="shop icon big"></i> is empty
+            <div class="ui message">
+              <i class="warning circle icon"></i> Your <i class="shop icon big"></i> is empty
+            </div>
         </ng-template>
     `,
     styles: [`
@@ -48,6 +50,11 @@ import {CartItem} from "../../../types/cart-item";
         button.checkout {
           height: 45px;
           margin: 30px;
+        }
+        
+        .message {
+            width: 20rem;
+            height: 4rem;
         }
     `]
 })
