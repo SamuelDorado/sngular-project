@@ -5,7 +5,14 @@
     </section>
     <section>
         <ng-container *ngIf="auth.isAuthenticated();else loginButton">
-            <a class="ui label green big" routerLink="/admin"> Admin User </a>
+            <div class="ui labeled button big" routerLink="/admin" tabindex="0" >
+                <div class="ui green button big">
+                    Admin Zone
+                </div>
+                <a (click)="auth.logout()" class="ui basic green left pointing label">
+                    Logout
+                </a>
+            </div>
         </ng-container>
         <ng-template #loginButton>
             <button class="ui inverted button red big" (click)="auth.login()">Admin Login</button>
