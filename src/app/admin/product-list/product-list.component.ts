@@ -5,7 +5,7 @@ import { ProductItem } from './../../../types/product-item';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-item-list',
+  selector: 'app-product-list',
   template: `
   <div class="table--container">
     <table class="ui celled padded table">
@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
       </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of itemList">
+        <tr *ngFor="let item of productList">
           <td>
             <h4 class="ui image header">
               <img src="{{item.img}}" class="ui mini rounded image">
@@ -32,18 +32,18 @@ import { Component, OnInit } from '@angular/core';
             {{item.price}}
           </td>
           <td>
-            <a (click)="removeItem.emit(item)">Delete</a>
+            <a (click)="deleteProduct.emit(item)">Delete</a>
           </td>
         </tr>     
       </tbody>
     </table>
   </div>
   `,
-  styleUrls:['./item-list.component.scss']
+  styleUrls:['./product-list.component.scss']
 })
-export class ItemListComponent implements OnInit {
-  @Input() itemList: ProductItem[] = [];
-  @Output() removeItem: EventEmitter<ProductItem> = new EventEmitter();
+export class ProductListComponent implements OnInit {
+  @Input() productList: ProductItem[] = [];
+  @Output() deleteProduct: EventEmitter<ProductItem> = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
